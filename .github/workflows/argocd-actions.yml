@@ -37,7 +37,7 @@ jobs:
         run: node -v # Added this step to explicitly show the Node.js version used
 
       - name: Install NodeJS dependencies
-        run: npm clean-install # Changed from 'npm install' to ensure clean dependency installation
+        run: npm install
 
       - name: Build React application
         run: npm run build
