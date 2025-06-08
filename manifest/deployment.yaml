@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ateliarra-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ateliarra
+  template:
+    metadata:
+      labels:
+        app: ateliarra
+    spec:
+      containers:
+      - name: ateliarra
+        image: ateliarra/ateliarra:0a17c88b6e32513a1a1f1bd4a856e485db9e7eff
+        ports:
+        - containerPort: 3000
