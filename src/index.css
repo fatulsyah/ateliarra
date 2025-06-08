@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 50% 96%; /* Lighter Cream */
+    --foreground: 0 0% 13%; /* Dark Charcoal/Black */
+    
+    --card: 40 50% 96%;
+    --card-foreground: 0 0% 13%;
+    
+    --popover: 40 50% 96%;
+    --popover-foreground: 0 0% 13%;
+    
+    --primary: 0 35% 65%; /* Dusty Rose */
+    --primary-foreground: 40 50% 98%; /* Off-white for contrast on primary */
+    
+    --secondary: 40 30% 90%; /* Light Cream/Beige */
+    --secondary-foreground: 0 0% 13%;
+    
+    --muted: 40 20% 85%; /* Muted Cream/Beige */
+    --muted-foreground: 0 0% 40%; /* Muted Charcoal */
+    
+    --accent: 0 30% 75%; /* Lighter Dusty Rose / Accent Rose */
+    --accent-foreground: 0 0% 13%;
+    
+    --destructive: 0 70% 50%; /* A stronger red for destructive actions */
+    --destructive-foreground: 40 50% 98%;
+
+    --border: 0 10% 80%; /* Soft border, slightly darker cream */
+    --input: 0 10% 80%;
+    --ring: 0 35% 65%; /* Dusty Rose for ring */
+    
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 0 0% 10%; /* Dark Charcoal for dark mode bg */
+    --foreground: 40 50% 96%; /* Light Cream for dark mode text */
+    
+    --card: 0 0% 12%;
+    --card-foreground: 40 50% 96%;
+    
+    --popover: 0 0% 12%;
+    --popover-foreground: 40 50% 96%;
+    
+    --primary: 0 35% 65%; /* Dusty Rose */
+    --primary-foreground: 0 0% 10%; /* Dark for contrast on primary */
+    
+    --secondary: 0 0% 15%; /* Darker secondary for dark mode */
+    --secondary-foreground: 40 50% 96%;
+    
+    --muted: 0 0% 20%;
+    --muted-foreground: 40 30% 70%; /* Muted Cream for dark mode muted text */
+    
+    --accent: 0 30% 55%; /* Darker Accent Rose for dark mode */
+    --accent-foreground: 40 50% 96%;
+    
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 40 50% 98%;
+    
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
+    --ring: 0 35% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Montserrat', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+    @apply font-medium tracking-wide;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl;
+  }
+  
+  .heading-xl {
+    @apply text-4xl md:text-5xl lg:text-6xl font-semibold;
+  }
+  
+  .heading-lg {
+    @apply text-3xl md:text-4xl font-semibold;
+  }
+  
+  .heading-md {
+    @apply text-2xl md:text-3xl font-medium;
+  }
+  
+  .heading-sm {
+    @apply text-xl md:text-2xl font-medium;
+  }
+  
+  .body-lg {
+    @apply text-lg;
+  }
+  
+  .body-base {
+    @apply text-base;
+  }
+  
+  .body-sm {
+    @apply text-sm;
+  }
+  
+  .nav-link {
+    @apply relative text-foreground/80 hover:text-foreground transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full;
+  }
+  
+  .nav-link.active {
+    @apply text-foreground after:w-full;
+  }
+  
+  .product-card {
+    @apply relative overflow-hidden rounded-lg bg-card shadow-md hover:shadow-lg transition-all duration-300;
+  }
+  
+  .product-image-container {
+    @apply relative overflow-hidden aspect-square;
+  }
+  
+  .product-image {
+    @apply w-full h-full object-cover transition-transform duration-500 ease-out;
+  }
+  
+  .product-card:hover .product-image {
+    @apply scale-105;
+  }
+  
+  .product-badge {
+    @apply absolute top-2 right-2 bg-primary text-primary-foreground text-xs px-2 py-1 rounded-full;
+  }
+  
+  .product-info {
+    @apply p-4;
+  }
+  
+  .product-title {
+    @apply heading-sm mb-1 line-clamp-1;
+  }
+  
+  .product-price {
+    @apply text-lg font-medium text-primary;
+  }
+  
+  .product-description {
+    @apply text-sm text-muted-foreground mt-2 line-clamp-2;
+  }
+  
+  .btn-add-to-cart {
+    @apply mt-3 w-full;
+  }
+  
+  .section-padding {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+  
+  .section-title {
+    @apply heading-lg text-center mb-8 md:mb-12;
+  }
+  
+  .section-subtitle {
+    @apply text-center text-muted-foreground max-w-2xl mx-auto mb-10 md:mb-14;
+  }
+  
+  .footer-link {
+    @apply text-muted-foreground hover:text-foreground transition-colors duration-200;
+  }
+  
+  .social-icon {
+    @apply h-10 w-10 flex items-center justify-center rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors duration-200;
+  }
+}
