@@ -77,15 +77,14 @@ jobs:
         uses: actions/download-artifact@v4 # Action to download artifacts
         with:
           name: ateliarra-dist # Name of the artifact to download
-          path: .            # Path to download the artifact to (downloads to current directory)
-
-      # Node.js setup, install, and build steps are removed from here
-      # as the 'dist/' folder is now provided by the artifact.
+          path: dist/            # Path to download the artifact to (downloads to current directory)
 
       - name: List contents of downloaded artifact for verification
         run: |
-          ls -F
+          # We primarily care that 'dist/' exists and contains files.
           ls -F dist/ # Verify the 'dist' directory is present and contains files
+          echo "Contents of dist/:"
+          ls -lR dist/ # List contents recursively for more detail
 
       - name: Deploy to VPS via SCP
         uses: appleboy/scp-action@v0.1.7 # A popular action for SCP
