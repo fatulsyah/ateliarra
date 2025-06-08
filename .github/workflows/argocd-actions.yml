@@ -34,17 +34,20 @@ jobs:
             - name: Install NodeJS dependencies
               run: npm install
 
-            - name: Build Docker Image
-              run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/ateliarra:${{ github.sha }} .
+            - name: Build React application
+              run: npm run build
 
-            - name: Scan Docker Image with Trivy
-              run: docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy:latest image ${{ secrets.DOCKERHUB_USERNAME }}/ateliarra:${{ github.sha }}
+            # - name: Build Docker Image
+            #   run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/ateliarra:${{ github.sha }} .
 
-            - name: Log in to DockerHub
-              run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+            # - name: Scan Docker Image with Trivy
+            #   run: docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy:latest image ${{ secrets.DOCKERHUB_USERNAME }}/ateliarra:${{ github.sha }}
+
+            # - name: Log in to DockerHub
+            #   run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
             
-            - name: Push Docker image to DockerHub
-              run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/ateliarra:${{ github.sha }} 
+            # - name: Push Docker image to DockerHub
+            #   run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/ateliarra:${{ github.sha }} 
 
     deploy:
         needs: build
@@ -56,49 +59,69 @@ jobs:
                 token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
                 fetch-depth: 0  # get all history of all branches and tags
 
-            - name: Install kubectl
-              run: |
-                  curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.30.7/2024-12-12/bin/linux/amd64/kubectl
-                  chmod +x ./kubectl
-                  sudo mv ./kubectl /usr/local/bin/kubectl
+            - name: Deploy to VPS via SCP
+              uses: appleboy/scp-action@v0.1.7 # A popular action for SCP
+              with:
+                host: ${{ secrets.VPS_HOST }} # Your VPS IP or domain, stored as a GitHub Secret
+                username: ${{ secrets.VPS_USERNAME }} # Your VPS SSH username, stored as a GitHub Secret
+                key: ${{ secrets.SSH_PRIVATE_KEY }} # The SSH private key content, stored as a GitHub Secret
+                source: "dist/" # The directory to copy (React's build output). Ensure it ends with /
+                target: "/var/www/ateliarra/" # The destination directory on your VPS
+    
+            - name: Restart Nginx on VPS
+              uses: appleboy/ssh-action@v0.1.0 # Another popular action for SSH commands
+              with:
+                host: ${{ secrets.VPS_HOST }}
+                username: ${{ secrets.VPS_USERNAME }}
+                key: ${{ secrets.SSH_PRIVATE_KEY }}
+                script: |
+                  sudo systemctl restart nginx
+                  # Optional: Clear Nginx cache if you use it extensively
+                  # sudo nginx -s reload # or a more specific reload if needed
 
-            - name: Install ArgoCD CLI
-              run: | 
-                  curl -sSL -o argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
-                  chmod +x argocd
-                  sudo mv argocd /usr/local/bin/argocd
+            # - name: Install kubectl
+            #   run: |
+            #       curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.30.7/2024-12-12/bin/linux/amd64/kubectl
+            #       chmod +x ./kubectl
+            #       sudo mv ./kubectl /usr/local/bin/kubectl
 
-            - name: Login to ArgoCD
-              run: |
-                argocd login ${{ secrets.ARGOCD_SERVER }} \
-                    --username ${{ secrets.ARGOCD_USERNAME }} \
-                    --password ${{ secrets.ARGOCD_PASSWORD }} \
-                    --insecure
+            # - name: Install ArgoCD CLI
+            #   run: | 
+            #       curl -sSL -o argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+            #       chmod +x argocd
+            #       sudo mv argocd /usr/local/bin/argocd
 
-            - name: Update deployment.yaml with newly built image
-              run: |
-                git config user.name "${{ secrets.GIT_USERNAME }}"
-                git config user.email "${{ secrets.GIT_EMAIL }}"
-                git fetch origin
-                git checkout main
-                git pull origin main
-                pwd
-                cat manifest/deployment.yaml
-                pwd
-                sed -i "s+${{ secrets.DOCKERHUB_USERNAME }}/ateliarra.*+${{ secrets.DOCKERHUB_USERNAME }}/ateliarra:${{ github.sha }}+g" manifest/deployment.yaml
-                cat manifest/deployment.yaml
+            # - name: Login to ArgoCD
+            #   run: |
+            #     argocd login ${{ secrets.ARGOCD_SERVER }} \
+            #         --username ${{ secrets.ARGOCD_USERNAME }} \
+            #         --password ${{ secrets.ARGOCD_PASSWORD }} \
+            #         --insecure
 
-            - name: Commit and Push Updated deployment.yaml
-              run: |
-                git config user.name "${{ secrets.GIT_USERNAME }}"
-                git config user.email "${{ secrets.GIT_EMAIL }}"
-                git remote set-url origin https://$GIT_USERNAME:$PERSONAL_ACCESS_TOKEN@github.com/${{ github.repository }}.git
-                git fetch origin
-                git checkout main
-                git pull origin main
-                git add .
-                git commit -m "Update image to ateliarra:${{ github.sha }}"
-                git push origin main
+            # - name: Update deployment.yaml with newly built image
+            #   run: |
+            #     git config user.name "${{ secrets.GIT_USERNAME }}"
+            #     git config user.email "${{ secrets.GIT_EMAIL }}"
+            #     git fetch origin
+            #     git checkout main
+            #     git pull origin main
+            #     pwd
+            #     cat manifest/deployment.yaml
+            #     pwd
+            #     sed -i "s+${{ secrets.DOCKERHUB_USERNAME }}/ateliarra.*+${{ secrets.DOCKERHUB_USERNAME }}/ateliarra:${{ github.sha }}+g" manifest/deployment.yaml
+            #     cat manifest/deployment.yaml
 
-            - name: Refresh ArgoCD App and Sync
-              run: argocd app sync ateliarra
+            # - name: Commit and Push Updated deployment.yaml
+            #   run: |
+            #     git config user.name "${{ secrets.GIT_USERNAME }}"
+            #     git config user.email "${{ secrets.GIT_EMAIL }}"
+            #     git remote set-url origin https://$GIT_USERNAME:$PERSONAL_ACCESS_TOKEN@github.com/${{ github.repository }}.git
+            #     git fetch origin
+            #     git checkout main
+            #     git pull origin main
+            #     git add .
+            #     git commit -m "Update image to ateliarra:${{ github.sha }}"
+            #     git push origin main
+
+            # - name: Refresh ArgoCD App and Sync
+            #   run: argocd app sync ateliarra
