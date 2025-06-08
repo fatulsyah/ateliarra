@@ -42,6 +42,13 @@ jobs:
       - name: Build React application
         run: npm run build
 
+      - name: Upload React build artifact
+        uses: actions/upload-artifact@v4 # Action to upload artifacts
+        with:
+          name: ateliarra-dist # Name of the artifact
+          path: dist/        # Path to the directory containing the build output
+          retention-days: 1  # How long to keep the artifact (optional)
+
       # The following Docker steps are commented out in your provided YAML.
       # Uncomment them if you intend to use them for Docker image build/scan/push.
       # - name: Build Docker Image
@@ -65,6 +72,20 @@ jobs:
         with:
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           fetch-depth: 0 # get all history of all branches and tags
+
+      - name: Download React build artifact
+        uses: actions/download-artifact@v4 # Action to download artifacts
+        with:
+          name: ateliarra-dist # Name of the artifact to download
+          path: .            # Path to download the artifact to (downloads to current directory)
+
+      # Node.js setup, install, and build steps are removed from here
+      # as the 'dist/' folder is now provided by the artifact.
+
+      - name: List contents of downloaded artifact for verification
+        run: |
+          ls -F
+          ls -F dist/ # Verify the 'dist' directory is present and contains files
 
       - name: Deploy to VPS via SCP
         uses: appleboy/scp-action@v0.1.7 # A popular action for SCP
