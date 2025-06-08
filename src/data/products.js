@@ -2,7 +2,7 @@
 export const products = [
   {
     id: 1,
-    images: 'dist/images/products/IMG_8447.jpeg',
+    images: 'images/products/IMG_8447.jpeg',
     name: "Handwoven Macramé Wall Hanging",
     price: 89.99,
     description: "A beautiful handwoven macramé wall hanging made with 100% cotton rope. Each piece is uniquely crafted to add texture and warmth to any space.",
@@ -16,7 +16,7 @@ export const products = [
   },
   // {
   //   id: 2,
-  //   images: 'dist/images/products/IMG_8443.jpeg',
+  //   images: 'images/products/IMG_8443.jpeg',
   //   name: "Handcrafted Ceramic Vase Set",
   //   price: 124.99,
   //   description: "Set of three handcrafted ceramic vases in complementary earth tones. Each vase is wheel-thrown and glazed by hand.",
@@ -30,7 +30,7 @@ export const products = [
   // },
   {
     id: 3,
-    images: 'dist/images/products/IMG_8453.jpeg',
+    images: 'images/products/IMG_8453.jpeg',
     name: "Hand-Stamped Personalized Necklace",
     price: 59.99,
     description: "A delicate sterling silver necklace with hand-stamped personalization. Choose up to 10 characters for a truly unique piece.",
@@ -44,7 +44,7 @@ export const products = [
   },
   {
     id: 4,
-    images: 'dist/images/products/IMG_8462.jpeg',
+    images: 'images/products/IMG_8462.jpeg',
     name: "Handmade Leather Journal",
     price: 45.99,
     description: "A beautifully crafted leather journal with handmade paper pages. Perfect for sketching, writing, or preserving memories.",
@@ -58,7 +58,7 @@ export const products = [
   },
   {
     id: 5,
-    images: 'dist/images/products/IMG_8463.jpeg',
+    images: 'images/products/IMG_8463.jpeg',
     name: "Hand-Poured Soy Candle Collection",
     price: 68.99,
     description: "Set of three hand-poured soy candles in amber glass jars. Choose from our signature scents for a cozy atmosphere.",
@@ -72,7 +72,7 @@ export const products = [
   },
   // {
   //   id: 6,
-  //   images: 'dist/images/products/IMG_8472.jpeg',
+  //   images: 'images/products/IMG_8472.jpeg',
   //   name: "Handwoven Wool Throw Blanket",
   //   price: 149.99,
   //   description: "A luxurious handwoven throw blanket made from 100% merino wool. Perfect for adding warmth and texture to your living space.",
@@ -86,7 +86,7 @@ export const products = [
   // },
   {
     id: 7,
-    images: 'dist/images/products/IMG_8482.jpeg',
+    images: 'images/products/IMG_8482.jpeg',
     name: "Hand-Embroidered Linen Napkin Set",
     price: 79.99,
     description: "Set of four hand-embroidered linen napkins with delicate floral motifs. Each napkin is uniquely stitched by our artisans.",
@@ -100,7 +100,7 @@ export const products = [
   },
    {
     id: 9,
-    images: 'dist/images/products/IMG_8497.jpeg',
+    images: 'images/products/IMG_8497.jpeg',
     name: "Handcrafted Wooden Serving Board",
     price: 89.99,
     description: "A beautiful serving board hand-carved from sustainable hardwood. Perfect for cheese platters, appetizers, or as a decorative piece.",
@@ -114,7 +114,7 @@ export const products = [
   },
    {
     id: 10,
-    images: 'dist/images/products/IMG_8531.jpeg',
+    images: 'images/products/IMG_8531.jpeg',
     name: "Handcrafted Wooden Serving Board",
     price: 89.99,
     description: "A beautiful serving board hand-carved from sustainable hardwood. Perfect for cheese platters, appetizers, or as a decorative piece.",
@@ -128,7 +128,7 @@ export const products = [
   },
    {
     id: 11,
-    images: 'dist/images/products/IMG_8538.jpeg',
+    images: 'images/products/IMG_8538.jpeg',
     name: "Handcrafted Wooden Serving Board",
     price: 89.99,
     description: "A beautiful serving board hand-carved from sustainable hardwood. Perfect for cheese platters, appetizers, or as a decorative piece.",
@@ -142,7 +142,7 @@ export const products = [
   },
    {
     id: 12,
-    images: 'dist/images/products/IMG_8566.jpeg',
+    images: 'images/products/IMG_8566.jpeg',
     name: "Handcrafted Wooden Serving Board",
     price: 89.99,
     description: "A beautiful serving board hand-carved from sustainable hardwood. Perfect for cheese platters, appetizers, or as a decorative piece.",
@@ -156,7 +156,7 @@ export const products = [
   },
    {
     id: 13,
-    images: 'dist/images/products/IMG_8574.jpeg',
+    images: 'images/products/IMG_8574.jpeg',
     name: "Handcrafted Wooden Serving Board",
     price: 89.99,
     description: "A beautiful serving board hand-carved from sustainable hardwood. Perfect for cheese platters, appetizers, or as a decorative piece.",
@@ -170,7 +170,7 @@ export const products = [
   },
    {
     id: 14,
-    images: 'dist/images/products/IMG_8569.jpeg',
+    images: 'images/products/IMG_8569.jpeg',
     name: "Handcrafted Wooden Serving Board",
     price: 89.99,
     description: "A beautiful serving board hand-carved from sustainable hardwood. Perfect for cheese platters, appetizers, or as a decorative piece.",
@@ -184,7 +184,7 @@ export const products = [
   },
    {
     id: 15,
-    images: 'dist/images/products/IMG_8575.jpeg',
+    images: 'images/products/IMG_8575.jpeg',
     name: "Handcrafted Wooden Serving Board",
     price: 89.99,
     description: "A beautiful serving board hand-carved from sustainable hardwood. Perfect for cheese platters, appetizers, or as a decorative piece.",
@@ -198,7 +198,7 @@ export const products = [
   },
    {
     id: 16,
-    images: 'dist/images/products/IMG_8577.jpeg',
+    images: 'images/products/IMG_8577.jpeg',
     name: "Handcrafted Wooden Serving Board",
     price: 89.99,
     description: "A beautiful serving board hand-carved from sustainable hardwood. Perfect for cheese platters, appetizers, or as a decorative piece.",
@@ -212,7 +212,7 @@ export const products = [
   },
    {
     id: 17,
-    images: 'dist/images/products/IMG_8588.jpeg',
+    images: 'images/products/IMG_8588.jpeg',
     name: "Handcrafted Wooden Serving Board",
     price: 89.99,
     description: "A beautiful serving board hand-carved from sustainable hardwood. Perfect for cheese platters, appetizers, or as a decorative piece.",
@@ -226,7 +226,7 @@ export const products = [
   },
    {
     id: 18,
-    images: 'dist/images/products/IMG_8579.jpeg',
+    images: 'images/products/IMG_8579.jpeg',
     name: "Handcrafted Wooden Serving Board",
     price: 89.99,
     description: "A beautiful serving board hand-carved from sustainable hardwood. Perfect for cheese platters, appetizers, or as a decorative piece.",
@@ -240,7 +240,7 @@ export const products = [
    },
    {
     id: 8,
-    images: 'dist/images/products/IMG_8582.jpeg',
+    images: 'images/products/IMG_8582.jpeg',
     name: "Handcrafted Wooden Serving Board",
     price: 89.99,
     description: "A beautiful serving board hand-carved from sustainable hardwood. Perfect for cheese platters, appetizers, or as a decorative piece.",

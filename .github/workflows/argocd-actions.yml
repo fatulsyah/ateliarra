@@ -104,8 +104,9 @@ jobs:
           host: ${{ secrets.VPS_HOST }} # Your VPS IP or domain, stored as a GitHub Secret
           username: ${{ secrets.VPS_USERNAME }} # Your VPS SSH username, stored as a GitHub Secret
           key: ${{ secrets.SSH_PRIVATE_KEY }} # The SSH private key content, stored as a GitHub Secret
-          source: "dist/*" # The directory to copy (React's build output). 'dist/' is common for Vite
+          source: "dist/" # The directory to copy (React's build output). 'dist/' is common for Vite
           target: "/var/www/ateliarra/" # The destination directory on your VPS
+          strip_components: 1
 
       - name: Restart Nginx on VPS
         uses: appleboy/ssh-action@v0.1.7
