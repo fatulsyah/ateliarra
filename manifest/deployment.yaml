@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: ateliarra
-        image: ateliarra/ateliarra:0a17c88b6e32513a1a1f1bd4a856e485db9e7eff
+        image: ateliarra/ateliarra:4d5834510871824f779c485d35b4cd6e898abcde
         ports:
         - containerPort: 3000
