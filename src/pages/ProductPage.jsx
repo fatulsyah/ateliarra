@@ -94,7 +94,7 @@ const ProductPage = () => {
             <img  
               className="w-full h-auto aspect-square object-cover" 
               alt={product.name}
-             src="https://images.unsplash.com/photo-1701739590264-799c5b2704fd" />
+             src={"/"+product.images} />
             
             {product.isNew && (
               <span className="absolute top-4 right-4 bg-primary text-primary-foreground text-sm px-3 py-1 rounded-full">
