@@ -84,7 +84,7 @@ const ContactPage = () => {
           <img  
             className="w-full h-full object-cover" 
             alt="Ateliarra studio space"
-           src="https://images.unsplash.com/photo-1688650331995-fdfdc85f42f4" />
+           src="images/banner-story-2.png" />
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
         
@@ -97,7 +97,10 @@ const ContactPage = () => {
           >
             <h1 className="heading-xl mb-4">Contact Us</h1>
             <p className="body-lg max-w-2xl mx-auto">
-              We'd love to hear from you. Reach out with any questions, custom orders, or just to say hello.
+              We'd love to hear from you. 
+            </p>
+            <p>
+              Reach out with any questions, custom orders, or just to say hello.
             </p>
           </motion.div>
         </div>
@@ -124,7 +127,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h3 className="font-medium mb-1">Our Location</h3>
-                    <p className="text-muted-foreground">123 Artisan Street, Craftville, CV 12345</p>
+                    <p className="text-muted-foreground">Gardens at Candi Sawangan, Depok, Indonesia</p>
                   </div>
                 </div>
                 
@@ -134,7 +137,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h3 className="font-medium mb-1">Phone Number</h3>
-                    <p className="text-muted-foreground">+1 (234) 567-8901</p>
+                    <p className="text-muted-foreground">+62 857-7315-3313</p>
                   </div>
                 </div>
                 
@@ -144,7 +147,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h3 className="font-medium mb-1">Email Address</h3>
-                    <p className="text-muted-foreground">hello@ateliarra.com</p>
+                    <p className="text-muted-foreground">ateliarra@gmail.com</p>
                   </div>
                 </div>
                 
@@ -156,21 +159,20 @@ const ContactPage = () => {
                     <h3 className="font-medium mb-1">Business Hours</h3>
                     <p className="text-muted-foreground">Monday - Friday: 9am - 6pm</p>
                     <p className="text-muted-foreground">Saturday: 10am - 4pm</p>
-                    <p className="text-muted-foreground">Sunday: Closed</p>
+                    <p className="text-muted-foreground">Sunday/Public Holiday: Closed</p>
                   </div>
                 </div>
               </div>
               
-              <div className="mt-12">
+              {/* <div className="mt-12">
                 <h3 className="heading-sm mb-4">Visit Our Studio</h3>
                 <div className="rounded-lg overflow-hidden h-64 bg-muted">
-                  {/* This would be a map in a real implementation */}
                   <img  
                     className="w-full h-full object-cover" 
                     alt="Map location of Ateliarra studio"
                    src="https://images.unsplash.com/photo-1688834080090-120aa7f8de4d" />
                 </div>
-              </div>
+              </div> */}
             </motion.div>
             
             {/* Contact Form */}

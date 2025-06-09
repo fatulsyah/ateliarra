@@ -41,7 +41,7 @@ const ProductCard = ({ product }) => {
           />
           
           {product.isNew && (
-            <span className="product-badge">News</span>
+            <span className="product-badge">New</span>
           )}
           
           <Button 

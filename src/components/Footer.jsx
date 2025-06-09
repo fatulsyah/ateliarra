@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Facebook, Twitter, Mail, MapPin, Phone } from 'lucide-react';
+import { Instagram, Mail, MapPin, Phone } from 'lucide-react';
+import { FaTiktok } from 'react-icons/fa';
 
 const logoUrl = "/images/muted_coral_logo.png";
 
@@ -11,23 +12,30 @@ const Footer = () => {
     <footer className="bg-secondary mt-16">
       <div className="container-custom pt-16 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Brand Column */}
           <div>
             <Link to="/" className="inline-block mb-4">
               <img src={logoUrl} alt="Ateliarra Logo" className="h-16" />
             </Link>
             <p className="text-muted-foreground mb-6">
-              Handcrafted gifts made with love and attention to detail. Each piece tells a unique story.
+                Handcrafted with love — Ateliarra celebrates thoughtful gifting for every moment.
             </p>
             <div className="flex space-x-3">
-              <a href="#" className="social-icon" aria-label="Instagram">
+              <a href="https://www.instagram.com/ateliarra/"
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="social-icon"
+                aria-label="Instagram"
+              >
                 <Instagram size={18} />
               </a>
-              <a href="#" className="social-icon" aria-label="Facebook">
-                <Facebook size={18} />
-              </a>
-              <a href="#" className="social-icon" aria-label="Twitter">
-                <Twitter size={18} />
+              <a 
+                href="https://www.tiktok.com/@ateliarra" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="social-icon"
+                aria-label="Tiktok"
+              >
+                <FaTiktok size={18} />
               </a>
             </div>
           </div>
@@ -39,8 +47,8 @@ const Footer = () => {
               <li><Link to="/shop" className="footer-link">Shop All</Link></li>
               <li><Link to="/about" className="footer-link">Our Story</Link></li>
               <li><Link to="/contact" className="footer-link">Contact Us</Link></li>
-              <li><Link to="#" className="footer-link">FAQs</Link></li>
-              <li><Link to="#" className="footer-link">Shipping & Returns</Link></li>
+              {/* <li><Link to="#" className="footer-link">FAQs</Link></li>
+              <li><Link to="#" className="footer-link">Shipping & Returns</Link></li> */}
             </ul>
           </div>
           
@@ -48,11 +56,10 @@ const Footer = () => {
           <div>
             <p className="font-medium text-lg mb-4 text-foreground">Categories</p>
             <ul className="space-y-2">
-              <li><Link to="/shop?category=home-decor" className="footer-link">Home Decor</Link></li>
-              <li><Link to="/shop?category=jewelry" className="footer-link">Jewelry</Link></li>
-              <li><Link to="/shop?category=accessories" className="footer-link">Accessories</Link></li>
-              <li><Link to="/shop?category=stationery" className="footer-link">Stationery</Link></li>
-              <li><Link to="/shop?category=gift-sets" className="footer-link">Gift Sets</Link></li>
+              <li><Link to="/shop?category=home-decor" className="footer-link">All Products</Link></li>
+              <li><Link to="/shop?category=jewelry" className="footer-link">Handcrafted Gift</Link></li>
+              <li><Link to="/shop?category=accessories" className="footer-link">Hampers</Link></li>
+              <li><Link to="/shop?category=stationery" className="footer-link">Sweet Little Extras</Link></li>
             </ul>
           </div>
           
@@ -62,15 +69,15 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 text-primary mr-2 mt-0.5" />
-                <span className="text-muted-foreground">123 Artisan Street, Craftville, CV 12345</span>
+                <span className="text-muted-foreground">Gardens at Candi Sawangan, Depok, Indonesia</span>
               </li>
               <li className="flex items-center">
                 <Phone className="h-5 w-5 text-primary mr-2" />
-                <span className="text-muted-foreground">+1 (234) 567-8901</span>
+                <span className="text-muted-foreground">+62 857-7315-3313</span>
               </li>
               <li className="flex items-center">
                 <Mail className="h-5 w-5 text-primary mr-2" />
-                <span className="text-muted-foreground">hello@ateliarra.com</span>
+                <span className="text-muted-foreground">ateliarra@gmail.com</span>
               </li>
             </ul>
           </div>

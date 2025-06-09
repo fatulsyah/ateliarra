@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import Newsletter from '@/components/Newsletter';
 
 const AboutPage = () => {
   return (
@@ -11,7 +10,7 @@ const AboutPage = () => {
           <img  
             className="w-full h-full object-cover" 
             alt="Artisan workshop with natural materials"
-           src="https://images.unsplash.com/photo-1628338243893-056573e389ea" />
+           src="images/banner-story.png" />
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
         
@@ -24,7 +23,7 @@ const AboutPage = () => {
           >
             <h1 className="heading-xl mb-4">Our Story</h1>
             <p className="body-lg max-w-2xl mx-auto">
-              Discover the passion and craftsmanship behind Ateliarra
+              The heart behind every handcrafted gift.
             </p>
           </motion.div>
         </div>
@@ -39,24 +38,31 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="prose prose-lg mx-auto"
           >
-            <h2 className="heading-lg text-center mb-8">The Beginning</h2>
+            <h2 className="heading-lg text-center mb-8">The Beginning of Ateliarra</h2>
             <p className="text-muted-foreground mb-6">
-              Ateliarra was founded in 2018 by Maria Hernandez, a passionate artisan with a dream to create meaningful, handcrafted gifts that tell a story. What began as a small home studio has grown into a collective of skilled artisans dedicated to preserving traditional craftsmanship while embracing contemporary design.
+            Ateliarra was born on May 20th, 2025, out of a deep love for heartfelt giving and the joy of crafting meaningful gifts.
+            The name Ateliarra is a blend of two elements:            
+            </p>
+            <p className="text-muted-foreground mb-6">
+            <b>“Atelier”</b> a French word meaning art studio,
+            and <b>“Arra”</b> short for the owner's name, the soul behind this brand.
+            Together, they form Ateliarra — a creative space where every gift is crafted with care, love, and a personal touch.
             </p>
             
             <div className="my-12 rounded-lg overflow-hidden">
               <img  
                 className="w-full h-auto" 
                 alt="Founder working in studio"
-               src="https://images.unsplash.com/photo-1698768195616-2d49cb36477f" />
+                src="images/atr-product.png" />
             </div>
             
             <h2 className="heading-lg text-center mb-8">Our Philosophy</h2>
             <p className="text-muted-foreground mb-6">
-              At Ateliarra, we believe in the beauty of imperfection and the value of the human touch. Each piece we create carries the unique mark of its maker, telling a story of dedication, skill, and passion. We are committed to sustainable practices, using responsibly sourced materials and minimizing waste in our production process.
+            At Ateliarra, we believe in the beauty of the handcrafted — gifts made not by machines, but by hands that pour in joy, time, and attention to detail.
+            A handcrafted gift is more than an object. It's a reflection of love, intention, and story.
             </p>
             <p className="text-muted-foreground mb-6">
-              We draw inspiration from nature, cultural heritage, and the simple moments of everyday life. Our designs aim to bring warmth, beauty, and meaning to your home and to the special moments you share with loved ones.
+            In a world full of instant things, we choose slow, thoughtful creation — so every piece feels personal, unique, and special.
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-12">
@@ -64,17 +70,17 @@ const AboutPage = () => {
                 <img  
                   className="w-full h-auto aspect-square object-cover" 
                   alt="Artisan working with clay"
-                 src="https://images.unsplash.com/photo-1607556672044-6110fc499247" />
+                 src="images/products/31.png" />
               </div>
               <div className="rounded-lg overflow-hidden">
                 <img  
                   className="w-full h-auto aspect-square object-cover" 
                   alt="Artisan weaving textile"
-                 src="https://images.unsplash.com/photo-1617694820985-a5476fe22722" />
+                 src="images/products/3.png" />
               </div>
             </div>
             
-            <h2 className="heading-lg text-center mb-8">Our Artisans</h2>
+            {/* <h2 className="heading-lg text-center mb-8">Our Artisans</h2>
             <p className="text-muted-foreground mb-6">
               Behind every Ateliarra creation is a skilled artisan with years of experience and a deep love for their craft. Our team includes potters, weavers, woodworkers, and jewelry makers, each bringing their unique perspective and expertise to our collection.
             </p>
@@ -87,11 +93,15 @@ const AboutPage = () => {
                 className="w-full h-auto" 
                 alt="Team of artisans"
                src="https://images.unsplash.com/photo-1697321150897-b5323e6bed79" />
-            </div>
+            </div> */}
             
             <h2 className="heading-lg text-center mb-8">Our Commitment</h2>
             <p className="text-muted-foreground mb-6">
-              We are committed to creating products that are not only beautiful but also ethically made and environmentally responsible. From our packaging to our production processes, we strive to minimize our environmental footprint while maximizing the positive impact we have on our community.
+              We create each gift with the hope that it becomes a little bridge — connecting people through warmth, gratitude, and love.
+              With Ateliarra, you're not just sending a present.
+              You're sharing joy, presence, and care — all wrapped in something beautiful.
+              Because every moment matters, and every heart deserves to feel remembered.
+              Ateliarra is more than gifts — it’s love, crafted ❤️
             </p>
             <p className="text-muted-foreground">
               Thank you for supporting handmade and for being part of the Ateliarra story. We hope our creations bring joy, beauty, and meaning to your life and to the special moments you share with others.
@@ -99,8 +109,6 @@ const AboutPage = () => {
           </motion.div>
         </div>
       </section>
-      
-      <Newsletter />
     </>
   );
 };

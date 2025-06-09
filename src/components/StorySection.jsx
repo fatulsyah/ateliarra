@@ -18,13 +18,17 @@ const StorySection = () => {
           >
             <h2 className="heading-lg mb-4">Our Story</h2>
             <p className="text-muted-foreground mb-6">
-              Ateliarra was born from a passion for craftsmanship and a desire to create meaningful gifts that tell a story. 
-              Our journey began in a small workshop, where each piece was carefully handcrafted with love and attention to detail.
+              Ateliarra began with a simple wish — to create gifts that carry more than just objects, but also stories, warmth, and love.
+              Founded on May 20th, 2025, the name Ateliarra combines two worlds:
+              “Atelier”, meaning art studio, and “Arra”, short for Arifatul Raden, the heart behind it all.
+              Every piece is carefully handcrafted — not just made, but felt.
             </p>
             <p className="text-muted-foreground mb-6">
-              Today, we continue to honor traditional techniques while embracing innovation, 
-              creating unique pieces that bring joy and beauty to everyday life. 
-              Each Ateliarra creation is a testament to the power of handmade and the beauty of imperfection.
+              We believe that a gift is a reflection of care, and that even the smallest token can hold deep meaning when it’s crafted with joy and intention.
+              In a world that moves fast, we slow down.
+              We wrap your moments in beautiful details, thoughtful textures, and quiet elegance — so you can share something real.
+              With Ateliarra, giving becomes more than a gesture.
+              It becomes a memory.
             </p>
             <Button asChild>
               <Link to="/about">Learn More</Link>
@@ -43,7 +47,7 @@ const StorySection = () => {
                 <img  
                   className="w-full h-auto" 
                   alt="Artisan crafting handmade products"
-                 src="https://images.unsplash.com/photo-1698256179114-30758b66f70d" />
+                 src="images/atr-product.png" />
               </div>
               <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-primary rounded-lg -z-10"></div>
               <div className="absolute -top-6 -right-6 w-32 h-32 bg-secondary rounded-lg -z-10"></div>
