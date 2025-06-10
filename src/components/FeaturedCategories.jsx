@@ -33,7 +33,7 @@ const FeaturedCategories = () => {
           Discover Ateliarra’s thoughtfully curated hampers, crafted with love and attention to detail. Each piece is designed to celebrate life’s special moments — from birthdays and thank-yous to meaningful milestones. Explore our collection and find the perfect gift to share with your loved ones. 
         </p>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
           {categories.map((category, index) => (
             <motion.div
               key={category.id}

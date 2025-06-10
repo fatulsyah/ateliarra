@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Instagram, Mail, MapPin, Phone } from 'lucide-react';
 import { FaTiktok } from 'react-icons/fa';
+import { scrollToTop } from '@/utils/scrollToTop';
 
 const logoUrl = "/images/muted_coral_logo.png";
 
@@ -44,9 +45,33 @@ const Footer = () => {
           <div>
             <p className="font-medium text-lg mb-4 text-foreground">Quick Links</p>
             <ul className="space-y-2">
-              <li><Link to="/shop" className="footer-link">Shop All</Link></li>
-              <li><Link to="/about" className="footer-link">Our Story</Link></li>
-              <li><Link to="/contact" className="footer-link">Contact Us</Link></li>
+              <li>
+                <Link
+                  to="/shop"
+                  className="footer-link"
+                  onClick={scrollToTop}
+                >
+                  Shop All
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about"
+                  className="footer-link"
+                  onClick={scrollToTop}
+                >
+                  Our Story
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/contact"
+                  className="footer-link"
+                  onClick={scrollToTop}
+                >
+                  Contact Us
+                </Link>
+              </li>
               {/* <li><Link to="#" className="footer-link">FAQs</Link></li>
               <li><Link to="#" className="footer-link">Shipping & Returns</Link></li> */}
             </ul>
@@ -56,9 +81,33 @@ const Footer = () => {
           <div>
             <p className="font-medium text-lg mb-4 text-foreground">Categories</p>
             <ul className="space-y-2">
-              <li><Link to="/shop?category=handcrafted-gift" className="footer-link">Handcrafted Gift</Link></li>
-              <li><Link to="/shop?category=hampers" className="footer-link">Hampers</Link></li>
-              <li><Link to="/shop?category=sweet-little-extras" className="footer-link">Sweet Little Extras</Link></li>
+              <li>
+                <Link
+                  to="/shop?category=handcrafted-gift"
+                  className="footer-link"
+                  onClick={scrollToTop}
+                >
+                  Handcrafted Gift
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/shop?category=hampers"
+                  className="footer-link"
+                  onClick={scrollToTop}
+                >
+                  Hampers
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/shop?category=sweet-little-extras"
+                  className="footer-link"
+                  onClick={scrollToTop}
+                >
+                  Sweet Little Extras
+                </Link>
+              </li>
             </ul>
           </div>
           

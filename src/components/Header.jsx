@@ -4,6 +4,7 @@ import { Menu, X, ShoppingBag, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from '@/contexts/CartContext';
+import { scrollToTop } from '@/utils/scrollToTop';
 
 const logoUrl = "/images/muted_coral_logo_circle.png";
 
@@ -56,6 +57,7 @@ const Header = () => {
                 className={({ isActive }) => 
                   isActive ? 'nav-link active' : 'nav-link'
                 }
+                onClick={scrollToTop}
               >
                 {link.name}
               </NavLink>
@@ -64,9 +66,9 @@ const Header = () => {
           
           {/* Actions */}
           <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="icon" className="relative">
+            {/* <Button variant="ghost" size="icon" className="relative">
               <Search className="h-5 w-5" />
-            </Button>
+            </Button> */}
             
             <Link to="/cart">
               <Button variant="ghost" size="icon" className="relative">
@@ -110,6 +112,7 @@ const Header = () => {
                   className={({ isActive }) => 
                     `text-lg ${isActive ? 'text-primary font-medium' : 'text-foreground'}`
                   }
+                  onClick={scrollToTop}
                 >
                   {link.name}
                 </NavLink>

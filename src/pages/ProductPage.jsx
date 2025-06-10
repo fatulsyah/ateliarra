@@ -111,7 +111,7 @@ const ProductPage = () => {
           transition={{ duration: 0.5 }}
         >
           <h1 className="heading-lg mb-2">{product.name}</h1>
-          <p className="text-2xl font-medium text-primary mb-4">${product.price.toFixed(2)}</p>
+          <p className="text-2xl font-medium text-primary mb-4">Rp {product.price.toFixed(2)}</p>
           
           <p className="text-muted-foreground mb-6">{product.description}</p>
           

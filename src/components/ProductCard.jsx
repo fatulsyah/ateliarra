@@ -59,7 +59,7 @@ const ProductCard = ({ product }) => {
         
         <div className="product-info">
           <h3 className="product-title">{product.name}</h3>
-          <p className="product-price">${product.price.toFixed(2)}</p>
+          <p className="product-price">Rp {product.price.toFixed(2)}</p>
           <p className="product-description">{product.description}</p>
           
           <Button 

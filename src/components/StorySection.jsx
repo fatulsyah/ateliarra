@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { scrollToTop } from '@/utils/scrollToTop';
 
 const StorySection = () => {
   return (
@@ -31,7 +32,7 @@ const StorySection = () => {
               It becomes a memory.
             </p>
             <Button asChild>
-              <Link to="/about">Learn More</Link>
+              <Link to="/about" onClick={scrollToTop}>Learn More</Link>
             </Button>
           </motion.div>
           
