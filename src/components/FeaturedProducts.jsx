@@ -18,7 +18,7 @@ const FeaturedProducts = () => {
       <div className="container-custom">
         <h2 className="section-title">Featured Products</h2>
         <p className="section-subtitle">
-          Discover our most popular handcrafted items, lovingly made for your special moments.
+         Our featured products represent the heart of our collection — beautifully made by hand to enrich your most treasured moments. Whether for a special event or just because, these gifts are made to be cherished.
         </p>
         
         <ProductGrid products={featuredProducts} />

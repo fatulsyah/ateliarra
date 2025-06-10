@@ -15,8 +15,8 @@ const HomePage = () => {
       <FeaturedCategories />
       <FeaturedProducts />
       <StorySection />
-      <Testimonials />
-      <Newsletter />
+      {/* <Testimonials /> */}
+      {/* <Newsletter /> */}
     </>
   );
 };

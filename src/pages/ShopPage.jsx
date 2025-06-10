@@ -17,9 +17,9 @@ const ShopPage = () => {
   
   const categories = [
     { id: 'all', name: 'All Products' },
-    { id: 'Handcrafted-Gift', name: 'Handcrafted Gift' },
-    { id: 'Hampers', name: 'Hampers' },
-    { id: 'Sweet-Little-Extras', name: 'Sweet Little Extras' },
+    { id: 'handcrafted-gift', name: 'Handcrafted Gift' },
+    { id: 'hampers', name: 'Hampers' },
+    { id: 'sweet-little-extras', name: 'Sweet Little Extras' },
     // { id: 'accessories', name: 'Accessories' },
     // { id: 'gift-sets', name: 'Gift Sets' }
   ];

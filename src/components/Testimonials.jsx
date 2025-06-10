@@ -31,10 +31,10 @@ const Testimonials = () => {
   return (
     <section className="section-padding bg-accent">
       <div className="container-custom">
-        <h2 className="section-title">What Our Customers Say</h2>
+        {/* <h2 className="section-title">What Our Customers Say</h2> */}
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-          {testimonials.map((testimonial, index) => (
+          {/* {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.id}
               initial={{ opacity: 0, y: 20 }}
@@ -58,13 +58,13 @@ const Testimonials = () => {
                         className="h-4 w-4"
                         fill={i < testimonial.rating ? "currentColor" : "none"}
                       />
-                    ))}
-                  </div>
-                </div>
-              </div>
+                    ))} */}
+                  {/* </div>
+                </div> */}
+              {/* </div>
               <p className="text-muted-foreground">{testimonial.text}</p>
             </motion.div>
-          ))}
+          ))} */}
         </div>
       </div>
     </section>

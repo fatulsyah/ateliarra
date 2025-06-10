@@ -56,10 +56,9 @@ const Footer = () => {
           <div>
             <p className="font-medium text-lg mb-4 text-foreground">Categories</p>
             <ul className="space-y-2">
-              <li><Link to="/shop?category=home-decor" className="footer-link">All Products</Link></li>
-              <li><Link to="/shop?category=jewelry" className="footer-link">Handcrafted Gift</Link></li>
-              <li><Link to="/shop?category=accessories" className="footer-link">Hampers</Link></li>
-              <li><Link to="/shop?category=stationery" className="footer-link">Sweet Little Extras</Link></li>
+              <li><Link to="/shop?category=handcrafted-gift" className="footer-link">Handcrafted Gift</Link></li>
+              <li><Link to="/shop?category=hampers" className="footer-link">Hampers</Link></li>
+              <li><Link to="/shop?category=sweet-little-extras" className="footer-link">Sweet Little Extras</Link></li>
             </ul>
           </div>
           

@@ -18,7 +18,7 @@ const GiftOptionsSection = () => {
           <h2 className="heading-lg">The Easiest Way to Gift</h2>
           <p className="section-subtitle mt-6 flex flex-col space-y-4 ">
           Choose from our curated ready-made gifts or create your own personalized hampers. 
-          Whether you're celebrating a special moment or simply sending love, Ateliarra offers thoughtful gifting made easy.<br /> 🎀 🎀 🎀 
+          Whether you're celebrating a special moment or simply sending love, Ateliarra offers thoughtful gifting made easy.<br />
           </p>
         </motion.div>
 
@@ -33,7 +33,7 @@ const GiftOptionsSection = () => {
             <img 
               className="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-105"
               alt="Custom a Gift Box"
-             src="https://images.unsplash.com/photo-1613158378359-01d6746ecd17" />
+             src="images/custom-gift.png" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex flex-col items-center justify-end p-8 text-center">
               <PackagePlus className="w-12 h-12 text-white mb-4" />
               <h3 className="text-2xl font-semibold text-white mb-2">Custom a Gift</h3>
@@ -56,7 +56,7 @@ const GiftOptionsSection = () => {
             <img 
               className="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-105"
               alt="Shop Ready-Made Gifts"
-             src="https://images.unsplash.com/photo-1608755727748-dfa2e44f255b" />
+             src="images/shop-ready-made.png" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex flex-col items-center justify-end p-8 text-center">
               <Gift className="w-12 h-12 text-white mb-4" />
               <h3 className="text-2xl font-semibold text-white mb-2">Shop Ready-Made</h3>

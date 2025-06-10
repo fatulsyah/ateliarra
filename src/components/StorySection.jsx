@@ -19,8 +19,8 @@ const StorySection = () => {
             <h2 className="heading-lg mb-4">Our Story</h2>
             <p className="text-muted-foreground mb-6">
               Ateliarra began with a simple wish — to create gifts that carry more than just objects, but also stories, warmth, and love.
-              Founded on May 20th, 2025, the name Ateliarra combines two worlds:
-              “Atelier”, meaning art studio, and “Arra”, short for Arifatul Raden, the heart behind it all.
+              Founded on May 20th, 2025, The name Ateliarra is a blend of two elements:
+              “Atelier” meaning art studio, and “Arra” short for the owner's name the heart behind it all.
               Every piece is carefully handcrafted — not just made, but felt.
             </p>
             <p className="text-muted-foreground mb-6">
