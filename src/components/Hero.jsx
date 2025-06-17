@@ -8,21 +8,19 @@ const slides = [
   {
     id: 1,
     image: '/images/banner-1.png',
-    title: 'Craft Your Perfect Gift',
-    subtitle: 'Personalized hampers for every occasion, made with love.',
-    // ctaText: 'Create a Custom Gift',
+    title: 'Ready-to-Ship Handcrafted Gifts',
+    subtitle: 'Discover unique, artisanal presents ready to delight.',
     ctaText: 'Shop Ready-Handcrafted',
-    // ctaLink: '/custom-gift',
     ctaLink: '/shop',
 
   },
   {
     id: 2,
     image: '/images/banner-2.png',
-    title: 'Ready-to-Ship Handcrafted Gifts',
-    subtitle: 'Discover unique, artisanal presents ready to delight.',
-    ctaText: 'Shop Ready-Handcrafted',
-    ctaLink: '/shop',
+    title: 'Craft Your Perfect Gift',
+    subtitle: 'Personalized hampers for every occasion, made with love.',
+    ctaText: 'Create a Custom Gift',
+    ctaLink: '/custom-gift',
   },
   {
     id: 3,
