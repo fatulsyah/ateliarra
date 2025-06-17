@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -6,6 +5,11 @@ import { Button } from '@/components/ui/button';
 import { ShoppingBag, Heart } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { useToast } from '@/components/ui/use-toast';
+
+// Format currency to "Rp 56.000,-"
+const formatRupiah = (amount) => {
+  return 'Rp ' + amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ',-';
+};
 
 const ProductCard = ({ product }) => {
   const { addToCart } = useCart();
@@ -59,7 +63,12 @@ const ProductCard = ({ product }) => {
         
         <div className="product-info">
           <h3 className="product-title">{product.name}</h3>
-          <p className="product-price">Rp {product.price.toFixed(2)}</p>
+          
+          {/* Render harga dalam format Rupiah */}
+          <p className="product-price">
+            {formatRupiah(product.price)}
+          </p>
+          
           <p className="product-description">{product.description}</p>
           
           <Button 

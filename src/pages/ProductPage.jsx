@@ -120,25 +120,25 @@ const ProductPage = () => {
             <p className="text-muted-foreground">{product.details}</p>
           </div>
           
-          <div className="mb-8">
+          {/* <div className="mb-8">
             <h3 className="font-medium mb-2">Dimensions</h3>
             <p className="text-muted-foreground">{product.dimensions}</p>
-          </div>
+          </div> */}
           
           <div className="mb-8">
-            <h3 className="font-medium mb-2">Materials</h3>
+            <h3 className="font-medium mb-2">What’s included</h3>
             <ul className="list-disc list-inside text-muted-foreground">
-              {product.materials.map((material, index) => (
+              {product.included.map((material, index) => (
                 <li key={index}>{material}</li>
               ))}
             </ul>
           </div>
           
-          <div className="mb-8">
+          {/* <div className="mb-8">
             <h3 className="font-medium mb-2">Care Instructions</h3>
             <p className="text-muted-foreground">{product.care}</p>
           </div>
-          
+           */}
           {/* Quantity Selector */}
           <div className="flex items-center mb-6">
             <span className="mr-4 font-medium">Quantity:</span>
@@ -173,9 +173,9 @@ const ProductPage = () => {
             >
               <ShoppingBag className="mr-2 h-5 w-5" /> Add to Cart
             </Button>
-            <Button variant="outline" size="lg">
+            {/* <Button variant="outline" size="lg">
               <Heart className="mr-2 h-5 w-5" /> Add to Wishlist
-            </Button>
+            </Button> */}
           </div>
           
           {/* In Stock Indicator */}

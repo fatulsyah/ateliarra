@@ -10,8 +10,11 @@ const slides = [
     image: '/images/banner-1.png',
     title: 'Craft Your Perfect Gift',
     subtitle: 'Personalized hampers for every occasion, made with love.',
-    ctaText: 'Create a Custom Gift',
-    ctaLink: '/custom-gift',
+    // ctaText: 'Create a Custom Gift',
+    ctaText: 'Shop Ready-Handcrafted',
+    // ctaLink: '/custom-gift',
+    ctaLink: '/shop',
+
   },
   {
     id: 2,
