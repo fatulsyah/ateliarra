@@ -251,14 +251,30 @@ const CustomGiftBuilderPage = () => {
   };
 
   return (
-    <div className="container-custom section-padding">
-      <h1 className="heading-xl text-center mb-4">Create Your Custom Gift</h1>
-      <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
-        Follow these simple steps to build a unique and thoughtful gift & hampers.
+  <div className="container-custom section-padding">
+    {/* <h1 className="heading-xl text-center mb-4">Create Your Custom Gift</h1> */}
+    <h1 className="heading-xl text-center mb-4">I'm Sorry..</h1>
+    <p className="text-center text-muted-foreground mb-5 max-w-2xl mx-auto">
+      Our Custom Gift & Hampers section is currently under development on our website.
+      Thank you for your patience — they will be coming soon!
+    </p>
+    <div className="flex flex-col items-center mb-10">
+      <p className="mb-6 text-center text-muted-foreground max-w-2xl">
+        Or simply reach out to us directly for any questions or special requests about custom gifts. We’re happy to help!
       </p>
-
-      {/* Progress Bar and Step Indicators */}
-      <div className="mb-10">
+      <a
+        href="https://wa.me/6282123680914?text=Hi%2C%20Ateliarra!%20I%E2%80%99d%20like%20to%20order%20a%20custom%20gift."
+        className="inline-flex items-center px-6 py-3 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 transition-colors text-sm font-semibold"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 32 32">
+          <path d="M16 3C9.373 3 4 8.373 4 15c0 2.637.86 5.09 2.48 7.17L4 29l7.09-2.44A12.93 12.93 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 22.5c-1.97 0-3.89-.52-5.56-1.5l-.4-.23-4.2 1.44 1.44-4.09-.26-.41A9.97 9.97 0 0 1 6 15c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.13-7.47c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.18-.44-2.25-1.41-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47-.16-.01-.34-.01-.52-.01-.18 0-.48.07-.73.34-.25.27-.97.95-.97 2.32 0 1.37.99 2.7 1.13 2.89.14.18 1.95 2.98 4.73 4.06.66.28 1.18.45 1.58.58.66.21 1.26.18 1.73.11.53-.08 1.65-.67 1.88-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.18-.53-.32z"/>
+        </svg>
+        Chat via WhatsApp
+      </a>
+    </div>
+      {/* <div className="mb-10">
         <Progress value={progressPercentage} className="w-full mb-2 h-3" />
         <div className="flex justify-between">
           {steps.map(step => (
@@ -268,14 +284,14 @@ const CustomGiftBuilderPage = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
       
-      <AnimatePresence mode="wait">
+      {/* <AnimatePresence mode="wait">
         {renderStepContent()}
-      </AnimatePresence>
+      </AnimatePresence> */}
 
       {/* Navigation Buttons */}
-      <div className="mt-12 flex justify-between items-center">
+      {/* <div className="mt-12 flex justify-between items-center">
         <Button variant="outline" onClick={prevStep} disabled={currentStep === 1}>
           <ArrowLeft className="mr-2 h-4 w-4" /> Previous
         </Button>
@@ -291,7 +307,7 @@ const CustomGiftBuilderPage = () => {
             <ShoppingCart className="mr-2 h-5 w-5" /> Add to Cart & Finalize
           </Button>
         )}
-      </div>
+      </div> */}
     </div>
   );
 };

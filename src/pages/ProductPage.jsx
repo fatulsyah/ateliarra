@@ -8,6 +8,11 @@ import { useToast } from '@/components/ui/use-toast';
 import { ShoppingBag, Heart, ArrowLeft, Minus, Plus, Check } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+// Format currency to "Rp 56.000,-"
+const formatRupiah = (amount) => {
+  return 'Rp ' + amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ',-';
+};
+
 const ProductPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -111,7 +116,10 @@ const ProductPage = () => {
           transition={{ duration: 0.5 }}
         >
           <h1 className="heading-lg mb-2">{product.name}</h1>
-          <p className="text-2xl font-medium text-primary mb-4">Rp {product.price.toFixed(2)}</p>
+          {/* <p className="text-2xl font-medium text-primary mb-4">Rp {product.price.toFixed(2)}</p> */}
+           <p className="product-price">
+            {formatRupiah(product.price)}
+          </p>
           
           <p className="text-muted-foreground mb-6">{product.description}</p>
           
