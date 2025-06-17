@@ -263,7 +263,7 @@ const CustomGiftBuilderPage = () => {
         Or simply reach out to us directly for any questions or special requests about custom gifts. We’re happy to help!
       </p>
       <a
-        href="https://wa.me/6282123680914?text=Hi%2C%20Ateliarra!%20I%E2%80%99d%20like%20to%20order%20a%20custom%20gift."
+        href="https://wa.me/6285773153313?text=Hi%2C%20Ateliarra!%20I%E2%80%99d%20like%20to%20order%20a%20custom%20gift."
         className="inline-flex items-center px-6 py-3 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 transition-colors text-sm font-semibold"
         target="_blank"
         rel="noopener noreferrer"

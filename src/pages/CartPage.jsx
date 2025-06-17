@@ -47,7 +47,7 @@ const CartPage = () => {
     message += `\nTotal: Rp${total.toLocaleString()}\n\nThank you!`;
 
     const encodedMessage = encodeURIComponent(message);
-    const phoneNumber = '6282123680914'; 
+    const phoneNumber = '6285773153313'; 
     window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
 
     setTimeout(() => {
