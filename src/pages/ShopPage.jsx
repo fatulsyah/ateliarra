@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import ProductGrid from '@/components/ProductGrid';
@@ -32,9 +31,15 @@ const ShopPage = () => {
   
   useEffect(() => {
     if (activeCategory === 'all') {
-      setFilteredProducts(products);
+      setFilteredProducts(
+        [...products].sort((a, b) => a.price - b.price)
+      );
     } else {
-      setFilteredProducts(products.filter(product => product.category === activeCategory));
+      setFilteredProducts(
+        products
+          .filter(product => product.category === activeCategory)
+          .sort((a, b) => a.price - b.price)
+      );
     }
   }, [activeCategory, products]);
   
