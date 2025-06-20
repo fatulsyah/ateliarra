@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -15,6 +15,7 @@ const CartPage = () => {
   const { cartItems, removeFromCart, updateQuantity, clearCart, cartTotal } = useCart();
   const { toast } = useToast();
   const navigate = useNavigate();
+  const [notes, setNotes] = useState({});
 
   const handleRemoveItem = (productId) => {
     removeFromCart(productId);
@@ -32,6 +33,13 @@ const CartPage = () => {
     updateQuantity(productId, newQuantity);
   };
 
+  const handleNoteChange = (productId, value) => {
+    setNotes((prev) => ({
+      ...prev,
+      [productId]: value,
+    }));
+  };
+
   const handleCheckout = () => {
     if (cartItems.length === 0) return;
 
@@ -41,7 +49,11 @@ const CartPage = () => {
     cartItems.forEach((item) => {
       const subtotal = item.quantity * item.price;
       total += subtotal;
-      message += `- ${item.name} × ${item.quantity} (Rp${subtotal.toLocaleString()})\n`;
+      message += `- ${item.name} × ${item.quantity} (Rp${subtotal.toLocaleString()})`;
+      if (notes[item.id]) {
+        message += ` [Note: ${notes[item.id]}]`;
+      }
+      message += `\n`;
     });
 
     message += `\nTotal: Rp${total.toLocaleString()}\n\nThank you!`;
@@ -111,6 +123,21 @@ const CartPage = () => {
                             </Link>
                           </h3>
                           <p className="text-primary font-medium">{formatRupiah(item.price)}</p>
+                          {/* Notes Form */}
+                          <div className="mt-2 max-w-xs">
+                            <label htmlFor={`note-${item.id}`} className="block text-xs text-muted-foreground mb-1">
+                              Notes (optional)
+                            </label>
+                            <textarea
+                              id={`note-${item.id}`}
+                              className="w-full border rounded px-2 py-1 text-xs resize-none"
+                              rows={2}
+                              maxLength={200}
+                              placeholder="Add a note..."
+                              value={notes[item.id] || ''}
+                              onChange={(e) => handleNoteChange(item.id, e.target.value)}
+                            />
+                          </div>
                         </div>
                         <div className="flex items-center mt-4 sm:mt-0">
                           <div className="flex items-center border rounded-md mr-4">

@@ -144,7 +144,7 @@ export const products = [
     featured: false,
     isNew: false,
     details: "Twinkle Toes features a pair of premium cotton baby socks designed to cradle little feet in warmth and softness. Ideal as a sweet standalone gift or a thoughtful add-on to a larger hamper, these gentle essentials bring a sense of care and charm to every bundle of joy.",
-    included: ["Premium cotton baby socks"],
+    included: ["Premium cotton baby socks", "packaging with Greeting card & Cutie Ribbon"],
   },
   {
     id: 13,
@@ -156,7 +156,7 @@ export const products = [
     featured: false,
     isNew: false,
     details: "Designed for tiny hands and curious minds, Bunni Boo Stroller is a delightful sensory toy that attaches easily to your little one’s stroller. With gentle textures, soothing colors, and soft plush details, it’s perfect for comforting and entertaining on the go. A charming companion that makes everyday outings just a little more magical.",
-    included: ["Sensory bunny stroller toy"],
+    included: ["Sensory bunny stroller toy", "packaging with Greeting card & Cutie Ribbon"],
   },
   {
     id: 14,
@@ -168,7 +168,7 @@ export const products = [
     featured: false,
     isNew: false,
     details: "Cutie Bib is designed for comfort, practicality, and a touch of adorable style. Made with soft, gentle fabric that’s kind to delicate skin, it keeps your little one clean during mealtime or teething moments. With playful designs and an easy-to-secure fit, it’s the kind of everyday essential that brings both function and joy.",
-    included: ["Cutie Bib – Soft & Adorable Baby Bib"],
+    included: ["Cutie Bib – Soft & Adorable Baby Bib","packaging with Greeting card & Cutie Ribbon"],
   },
   {
     id: 15,
@@ -180,7 +180,7 @@ export const products = [
     featured: false,
     isNew: false,
     details: "WonderEyes Black is a baby’s first soft book crafted with high-contrast black and white visuals — ideal for stimulating newborn sight and cognitive development. With tactile pages and simple shapes, it invites curious little hands to explore while supporting early visual recognition. Lightweight and gentle, it’s perfect for tummy time, stroller rides, or quiet snuggles.",
-    included: ["WonderEyes Black  —  (Baby's first soft book black standart)"],
+    included: ["WonderEyes Black  —  (Baby's first soft book black standart)", "packaging with Greeting card & Cutie Ribbon"],
   },
   {
     id: 16,
@@ -192,7 +192,7 @@ export const products = [
     featured: false,
     isNew: false,
     details: "Whimling Tunes Koala is a delightful plush companion that brings comfort through both touch and sound. With a built-in music box, this soft character plays soothing lullabies that help ease little ones into rest or relaxation. Designed to be both adorable and calming, it’s a lovely addition to bedtime routines, stroller naps, or nursery decor.",
-    included: ["Whimling Tunes Koala  —  (Music box character animal)"],
+    included: ["Whimling Tunes Koala  —  (Music box character animal)","packaging with Greeting card & Cutie Ribbon"],
   },
   {
     id: 17,
@@ -204,7 +204,7 @@ export const products = [
     featured: false,
     isNew: false,
     details: "The Cloud Towel Hoodie is made from premium, ultra-soft cotton that’s gentle on delicate skin while offering excellent absorbency. With its charming animal character design and snug hood, it brings joy to post-bath moments and makes drying off a delightful experience. Ideal for bath time, pool days, or as a comforting layer during bedtime routines, this towel hoodie blends function with fun in every thread.",
-    included: ["Cloud Towel Hoodie  —  (Towel Hoodie Cutton Premium)"],
+    included: ["Cloud Towel Hoodie  —  (Towel Hoodie Cutton Premium)", "packaging with Greeting card & Cutie Ribbon"],
   },
   {
     id: 18,
@@ -216,7 +216,7 @@ export const products = [
     featured: false,
     isNew: false,
     details: "Whisper Buds is a charming animal character plushie crafted with ultra-soft fabric and stitched with care. Whether as a comforting naptime friend or a playful daytime buddy, it brings a gentle touch of joy and security to your child’s everyday moments. Perfectly sized for tiny hands and hearts, this lovable plushie makes a thoughtful add-on to any gift set or a sweet standalone surprise.",
-    included: ["Whisper Buds  —  (Animal Character Plushie)"],
+    included: ["Whisper Buds  —  (Animal Character Plushie)", "packaging with Greeting card & Cutie Ribbon"],
   },
   {
     id: 19,
@@ -228,7 +228,7 @@ export const products = [
     featured: false,
     isNew: false,
     details: "The Wonder Eyes 3D Grey is a premium fabric soft book thoughtfully crafted for early visual and tactile stimulation. With muted grey tones and adorable 3D animal features, this baby-friendly book invites exploration through crinkly textures, peek-a-boo flaps, and safe, touchable details. Perfect for tummy time, stroller rides, or quiet bonding moments, it’s a gentle companion in your baby's sensory development journey.",
-    included: ["WonderEyes 3D Grey – Baby's First Soft Book (Premium 3D Edition)"],
+    included: ["WonderEyes 3D Grey – Baby's First Soft Book (Premium 3D Edition)", "packaging with Greeting card & Cutie Ribbon"],
   },
   {
     id: 20,
@@ -252,7 +252,7 @@ export const products = [
     featured: false,
     isNew: true,
     details: "The Mini Cloud Towel is made from high-quality cotton, offering a plush, ultra-soft texture ideal for both face and hand use. Compact in size yet rich in comfort, it’s perfect for daily routines or as a charming addition to gift sets. With its refined design and absorbent fabric, this towel brings a gentle touch to any moment — whether for babies, kids, or anyone who appreciates a little luxury.",
-    included: ["Mini Cloud Towel  —  (Hand / Face towel mini premium) "],
+    included: ["Mini Cloud Towel  —  (Hand / Face towel mini premium)" , "packaging with Greeting card & Cutie Ribbon"],
   },
   {
     id: 22,
@@ -264,7 +264,7 @@ export const products = [
     featured: false,
     isNew: false,
     details: "The Snuggle Blanket is crafted from ultra-soft, breathable fabric that's gentle on babies' sensitive skin. Perfect for tummy time, stroller rides, or peaceful naps, this lightweight blanket offers warmth without overheating. Its timeless design and neutral tones make it a beautiful essential for both everyday use and gifting. A comforting companion for little ones and a lovely touch in any nursery.",
-    included: ["Snuggle Blanket  —  (Baby's Blanket)"],
+    included: ["Snuggle Blanket  —  (Baby's Blanket)", "packaging with Greeting card & Cutie Ribbon"],
   },
   {
     id: 23,
@@ -288,7 +288,7 @@ export const products = [
     featured: false,
     isNew: false,
     details: "Wiggly Boo is an adorable animal character plush toy made to attach securely to strollers, car seats, or cribs. Designed with gentle textures and playful features, it encourages sensory development while keeping babies engaged during walks or quiet time. The toy’s lightweight build and wiggly movement add extra charm, making it a favorite among both little ones and parents. Crafted with baby-safe materials and stitched to last, it’s a sweet companion for early explorations.",
-    included: ["Wiggly Boo – Stroller Plush Toy (Animal Character"],
+    included: ["Wiggly Boo – Stroller Plush Toy (Animal Character)", "packaging with Greeting card & Cutie Ribbon"],
   },
   {
     id: 25,
@@ -300,7 +300,7 @@ export const products = [
     featured: false,
     isNew: true,
     details: "The Guard Lion is a plush, lightweight baby head protector designed to cushion your little one from backward falls during those wobbly crawling or first-walking moments. Shaped like a charming lion with a friendly face and a soft mane, it’s crafted from breathable, padded materials for comfort and safety. Adjustable shoulder straps make it easy to fit securely while still allowing free movement. Both a practical safety tool and a playful companion, Guard Lion brings peace of mind — and smiles — to everyday playtime.",
-    included: ["Cozy Guard Lion  —  (Head Protector Plush for Babies)"],
+    included: ["Cozy Guard Lion  —  (Head Protector Plush for Babies)", "packaging with Greeting card & Cutie Ribbon"],
   },
   {
     id: 26,
@@ -312,7 +312,7 @@ export const products = [
     featured: false,
     isNew: false,
     details: "Scent Whisper is a minimalist reed diffuser crafted to deliver a subtle yet lasting fragrance. Each diffuser includes a premium glass bottle filled with a delicate scent blend, accompanied by natural reeds that gently disperse the aroma throughout your space. Ideal for nurseries, bedrooms, bathrooms, or workspace corners, it adds a touch of elegance while enhancing the ambiance. A beautiful choice for gifting or elevating your daily routine with a whiff of calm.",
-    included: ["Scent Whisper  —  (Reed Diffuser in Glass Bottle)"],
+    included: ["Scent Whisper  —  (Reed Diffuser in Glass Bottle)", "packaging with Greeting card & Cutie Ribbon"],
   },
   {
     id: 27,
@@ -324,7 +324,7 @@ export const products = [
     featured: false,
     isNew: true,
     details: "The Cloud Towel is a premium-quality cotton towel with an extra-soft texture, ideal for wrapping your baby in comfort after baths or playtime. Its absorbent and breathable material ensures quick drying while remaining kind to sensitive skin. With its cloud-like softness, this towel provides both function and coziness — a must-have essential for any little one. Beautifully packaged, it's also a thoughtful gift for new parents.",
-    included: ["Cloud Towel  —  ( Towel Cutton Premium)"],
+    included: ["Cloud Towel  —  ( Towel Cutton Premium)", "packaging with Greeting card & Cutie Ribbon"],
   },
   {
     id: 28,
@@ -336,7 +336,7 @@ export const products = [
     featured: false,
     isNew: false,
     details: "The Little Dry Towels are soft, playful towels crafted with gentle, absorbent fabric to keep your little ones dry and cozy. Each towel features cute animal character designs, making drying off after meals, bath time, or outdoor play both fun and functional. Compact and easy to carry, they’re ideal for on-the-go parents or as a sweet addition to gift hampers. Perfect for toddlers and young children.",
-    included: ["Little Dry Towels  —  (Kids towels character animal)"],
+    included: ["Little Dry Towels  —  (Kids towels character animal)", "packaging with Greeting card & Cutie Ribbon"],
   },
   {
     id: 29,
@@ -348,7 +348,7 @@ export const products = [
     featured: false,
     isNew: true,
     details: "The Luce Box is a transparent, hardcase gift box designed to elevate the presentation of handcrafted and baby-friendly gifts. With its crystal-clear body, the recipient can enjoy a first glimpse of your curated items inside. It's made from durable plastic with a clean finish, complete with a snug lid and soft edges for a polished appearance. Whether used alone or as part of a larger package, the Luce Box makes any gift feel extra special.",
-    included: ["Luce Box  —  (Mika Box Transparent)"],
+    included: ["Luce Box  —  (Mika Box Transparent)", "packaging with Greeting card & Cutie Ribbon"],
   },
   {
     id: 30,
@@ -360,7 +360,7 @@ export const products = [
     featured: false,
     isNew: true,
     details: "The Wovenwhim Oval is a handcrafted cotton rope basket featuring a soft yet sturdy construction. Its neutral tones and elegant oval shape make it a versatile base for baby hampers or nursery organization. Whether filled with toys, towels, or little keepsakes, it adds a warm, artisanal touch to any space. Lightweight, durable, and eco-conscious — it’s both practical and beautifully aesthetic.",
-    included: ["Wovenwhim Oval — (Cotton rope woven basket, oval shape)"],
+    included: ["Wovenwhim Oval — (Cotton rope woven basket, oval shape)", "packaging with Greeting card & Cutie Ribbon"],
   },
   {
     id: 31,
@@ -372,7 +372,7 @@ export const products = [
     featured: false,
     isNew: true,
     details: "The Wovenwhim Circle is a handcrafted, round cotton rope basket with soft curves and a minimalist design. Its compact yet spacious form makes it ideal for assembling baby hampers, organizing essentials, or displaying keepsakes. The neutral tones suit any decor style, while the textured rope weave adds a natural, cozy feel. Lightweight and reusable — it's a practical and eco-conscious choice.",
-    included: ["Wovenwhim Circle — (Cotton rope woven basket, circular shape)"],
+    included: ["Wovenwhim Circle — (Cotton rope woven basket, circular shape)", "packaging with Greeting card & Cutie Ribbon"],
   },
   {
     id: 32,
@@ -384,6 +384,6 @@ export const products = [
     featured: false,
     isNew: true,
     details: "The Vista Box features a sleek, transparent design that elegantly displays its contents while providing sturdy protection. Made from durable, high-quality plastic with a clear finish, this box is ideal for modern, visually pleasing gift packaging. Whether you're building a baby gift set or a thoughtful care package, the Vista Box offers a clean and charming presentation. Comes with optional accessories like ribbons or fabric wraps for added appeal.",
-    included: ["Vista Box — (Transparent gift box for hampers)"],
+    included: ["Vista Box — (Transparent gift box for hampers)", "packaging with Greeting card & Cutie Ribbon"],
   },
 ];
