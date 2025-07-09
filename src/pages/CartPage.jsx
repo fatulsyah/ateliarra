@@ -11,11 +11,83 @@ const formatRupiah = (amount) => {
   return 'Rp ' + amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ',-';
 };
 
+const showStartFromIds = [37, 39, 54, 55]; //condition ID to show "Start from" text
+
 const CartPage = () => {
-  const { cartItems, removeFromCart, updateQuantity, clearCart, cartTotal } = useCart();
+  const { cartItems, removeFromCart, updateQuantity, clearCart, cartTotal: cartTotalContext } = useCart();
   const { toast } = useToast();
   const navigate = useNavigate();
   const [notes, setNotes] = useState({});
+
+  // Tambahkan mapping harga khusus
+  const specialPriceMap = {
+    37: { // Wishful Pack
+      "Oval Small": 70000,
+      "Oval Medium": 85000,
+      "Oval Large": 100000,
+      "Circle Small": 80000,
+      "Circle Medium": 95000,
+      "Circle Large": 110000,
+    },
+    39: { // Vista Pick & Pack
+      "Small": 40000,
+      "Medium": 45000,
+      "Large": 50000,
+    },
+    54: { // Luce Pack
+      "Small": 30000,
+      "Medium": 40000,
+      "Large": 50000,
+    },
+    55: { // Custom Sticker
+      "Hello Small": 10000,
+      "Hello Medium": 10000,
+      "Hello Large": 15000,
+      "Welcome Small": 12000,
+      "Welcome Medium": 12000,
+      "Welcome Large": 15000,
+      "Custom Size": 20000,
+    },
+  };
+
+  // Fungsi untuk mengambil harga spesial berdasarkan notes
+  const getSpecialPrice = (item) => {
+    if (![37, 39, 54, 55].includes(item.id)) return item.price;
+    const note = (notes[item.id] || "").trim();
+
+    // Untuk id 55, cek kata kunci di notes
+    if (item.id === 55) {
+      if (/custom/i.test(note)) return specialPriceMap[55]["Custom Size"];
+      if (/hello/i.test(note) && /small/i.test(note)) return specialPriceMap[55]["Hello Small"];
+      if (/hello/i.test(note) && /medium/i.test(note)) return specialPriceMap[55]["Hello Medium"];
+      if (/hello/i.test(note) && /large/i.test(note)) return specialPriceMap[55]["Hello Large"];
+      if (/welcome|graduation|wedding|birthday/i.test(note) && /small/i.test(note)) return specialPriceMap[55]["Welcome Small"];
+      if (/welcome|graduation|wedding|birthday/i.test(note) && /medium/i.test(note)) return specialPriceMap[55]["Welcome Medium"];
+      if (/welcome|graduation|wedding|birthday/i.test(note) && /large/i.test(note)) return specialPriceMap[55]["Welcome Large"];
+      return item.price;
+    }
+
+    // Untuk id 37, cek oval/circle dan size
+    if (item.id === 37) {
+      if (/oval/i.test(note) && /small/i.test(note)) return specialPriceMap[37]["Oval Small"];
+      if (/oval/i.test(note) && /medium/i.test(note)) return specialPriceMap[37]["Oval Medium"];
+      if (/oval/i.test(note) && /large/i.test(note)) return specialPriceMap[37]["Oval Large"];
+      if (/circle/i.test(note) && /small/i.test(note)) return specialPriceMap[37]["Circle Small"];
+      if (/circle/i.test(note) && /medium/i.test(note)) return specialPriceMap[37]["Circle Medium"];
+      if (/circle/i.test(note) && /large/i.test(note)) return specialPriceMap[37]["Circle Large"];
+      return item.price;
+    }
+
+    // Untuk id 39 & 54, cek size
+    if ((item.id === 39 || item.id === 54)) {
+      if (/small/i.test(note)) return specialPriceMap[item.id]["Small"];
+      if (/medium/i.test(note)) return specialPriceMap[item.id]["Medium"];
+      if (/large/i.test(note)) return specialPriceMap[item.id]["Large"];
+      return item.price;
+    }
+
+    return item.price;
+  };
 
   const handleRemoveItem = (productId) => {
     removeFromCart(productId);
@@ -41,13 +113,29 @@ const CartPage = () => {
   };
 
   const handleCheckout = () => {
+    // Prevent checkout if required notes are missing
+    const missingNote = cartItems.some(
+      (item) => [37, 39, 54, 55].includes(item.id) && !notes[item.id]
+    );
+    if (missingNote) {
+      toast({
+        title: "Missing Note",
+        description: "Please fill in your preferred size/option in the notes for all relevant products before checkout.",
+        duration: 5000,
+        dismissible: true
+      });
+      return;
+    }
+
     if (cartItems.length === 0) return;
 
     let message = `Hi Ateliarra, I’d like to order:\n\n`;
     let total = 0;
 
     cartItems.forEach((item) => {
-      const subtotal = item.quantity * item.price;
+      // Pakai harga spesial jika ada
+      const price = getSpecialPrice(item);
+      const subtotal = item.quantity * price;
       total += subtotal;
       message += `- ${item.name} × ${item.quantity} (Rp${subtotal.toLocaleString()})`;
       if (notes[item.id]) {
@@ -74,6 +162,12 @@ const CartPage = () => {
       });
     }, 1500);
   };
+
+  // Untuk tampilan subtotal dan total di Order Summary, gunakan juga getSpecialPrice
+  const cartTotal = cartItems.reduce(
+    (total, item) => total + getSpecialPrice(item) * item.quantity,
+    0
+  );
 
   return (
     <div className="section-padding">
@@ -122,21 +216,104 @@ const CartPage = () => {
                               {item.name}
                             </Link>
                           </h3>
-                          <p className="text-primary font-medium">{formatRupiah(item.price)}</p>
+                           <p className="product-price text-lg text-muted-foreground mb-4">
+                              {showStartFromIds.includes(item.id) && !notes[item.id]
+                                ? `Start From ${formatRupiah(item.price)}`
+                                : formatRupiah(getSpecialPrice(item))}
+                          </p>
                           {/* Notes Form */}
                           <div className="mt-2 max-w-xs">
-                            <label htmlFor={`note-${item.id}`} className="block text-xs text-muted-foreground mb-1">
-                              Notes (optional)
-                            </label>
-                            <textarea
-                              id={`note-${item.id}`}
-                              className="w-full border rounded px-2 py-1 text-xs resize-none"
-                              rows={2}
-                              maxLength={200}
-                              placeholder="Add a note..."
-                              value={notes[item.id] || ''}
-                              onChange={(e) => handleNoteChange(item.id, e.target.value)}
-                            />
+                            {[37, 39, 54, 55].includes(item.id) ? (
+                              <>
+                                <label htmlFor={`note-${item.id}`} className="block text-xs text-muted-foreground mb-1">
+                                  Pilih Opsi <span className="text-primary">*</span>
+                                </label>
+                                {item.id === 37 && (
+                                  <select
+                                    id={`note-${item.id}`}
+                                    className={`w-full border rounded px-2 py-1 text-xs ${!notes[item.id] ? 'border-red-500' : ''}`}
+                                    value={notes[item.id] || ''}
+                                    onChange={(e) => handleNoteChange(item.id, e.target.value)}
+                                    required
+                                  >
+                                    <option value="">Pilih ukuran & tipe keranjang</option>
+                                    <option value="Oval Small">Oval Small - Rp 70.000</option>
+                                    <option value="Oval Medium">Oval Medium - Rp 85.000</option>
+                                    <option value="Oval Large">Oval Large - Rp 100.000</option>
+                                    <option value="Circle Small">Circle Small - Rp 80.000</option>
+                                    <option value="Circle Medium">Circle Medium - Rp 95.000</option>
+                                    <option value="Circle Large">Circle Large - Rp 110.000</option>
+                                  </select>
+                                )}
+                                {item.id === 39 && (
+                                  <select
+                                    id={`note-${item.id}`}
+                                    className={`w-full border rounded px-2 py-1 text-xs ${!notes[item.id] ? 'border-red-500' : ''}`}
+                                    value={notes[item.id] || ''}
+                                    onChange={(e) => handleNoteChange(item.id, e.target.value)}
+                                    required
+                                  >
+                                    <option value="">Pilih ukuran</option>
+                                    <option value="Small">Small - Rp 40.000</option>
+                                    <option value="Medium">Medium - Rp 45.000</option>
+                                    <option value="Large">Large - Rp 50.000</option>
+                                  </select>
+                                )}
+                                {item.id === 54 && (
+                                  <select
+                                    id={`note-${item.id}`}
+                                    className={`w-full border rounded px-2 py-1 text-xs ${!notes[item.id] ? 'border-red-500' : ''}`}
+                                    value={notes[item.id] || ''}
+                                    onChange={(e) => handleNoteChange(item.id, e.target.value)}
+                                    required
+                                  >
+                                    <option value="">Pilih ukuran</option>
+                                    <option value="Small">Small - Rp 30.000</option>
+                                    <option value="Medium">Medium - Rp 40.000</option>
+                                    <option value="Large">Large - Rp 50.000</option>
+                                  </select>
+                                )}
+                                {item.id === 55 && (
+                                  <select
+                                    id={`note-${item.id}`}
+                                    className={`w-full border rounded px-2 py-1 text-xs ${!notes[item.id] ? 'border-red-500' : ''}`}
+                                    value={notes[item.id] || ''}
+                                    onChange={(e) => handleNoteChange(item.id, e.target.value)}
+                                    required
+                                  >
+                                    <option value="">Pilih jenis & ukuran stiker</option>
+                                    <option value="Hello Small">Hello Small - Rp 10.000</option>
+                                    <option value="Hello Medium">Hello Medium - Rp 10.000</option>
+                                    <option value="Hello Large">Hello Large - Rp 15.000</option>
+                                    <option value="Welcome Small">Welcome/Graduation/Wedding/Birthday Small - Rp 12.000</option>
+                                    <option value="Welcome Medium">Welcome/Graduation/Wedding/Birthday Medium - Rp 12.000</option>
+                                    <option value="Welcome Large">Welcome/Graduation/Wedding/Birthday Large - Rp 15.000</option>
+                                    <option value="Custom Size">Custom Size - Rp 20.000</option>
+                                  </select>
+                                )}
+                                <p className="text-xs text-primary font-medium mt-1">
+                                  Reminder: Please select an option according to your product needs.
+                                  {!notes[item.id] && (
+                                    <span className="block text-red-500">You must select one option.</span>
+                                  )}
+                                </p>
+                              </>
+                            ) : (
+                              <>
+                                <label htmlFor={`note-${item.id}`} className="block text-xs text-muted-foreground mb-1">
+                                  Notes (optional)
+                                </label>
+                                <textarea
+                                  id={`note-${item.id}`}
+                                  className="w-full border rounded px-2 py-1 text-xs resize-none"
+                                  rows={2}
+                                  maxLength={200}
+                                  placeholder="Add a note..."
+                                  value={notes[item.id] || ''}
+                                  onChange={(e) => handleNoteChange(item.id, e.target.value)}
+                                />
+                              </>
+                            )}
                           </div>
                         </div>
                         <div className="flex items-center mt-4 sm:mt-0">
@@ -188,7 +365,6 @@ const CartPage = () => {
                   <Button className="w-full mt-6" size="lg" onClick={handleCheckout}>
                     Checkout <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
-
                   <Button variant="outline" className="w-full mt-4" onClick={() => navigate('/shop')}>
                     Continue Shopping
                   </Button>

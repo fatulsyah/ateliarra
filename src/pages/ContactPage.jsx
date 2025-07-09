@@ -147,7 +147,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h3 className="font-medium mb-1">Email Address</h3>
-                    <p className="text-muted-foreground">ateliarra@gmail.com</p>
+                    <p className="text-muted-foreground">hello@ateliarra.com</p>
                   </div>
                 </div>
                 

@@ -8,8 +8,13 @@ import { useToast } from '@/components/ui/use-toast';
 
 // Format currency to "Rp 56.000,-"
 const formatRupiah = (amount) => {
+  if (typeof amount !== 'number') {
+    amount = Number(amount) || 0;
+  }
   return 'Rp ' + amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ',-';
 };
+
+const showStartFromIds = [37, 39, 54, 55]; //condition ID to show "Start from" text
 
 const ProductCard = ({ product }) => {
   const { addToCart } = useCart();
@@ -63,14 +68,12 @@ const ProductCard = ({ product }) => {
         
         <div className="product-info">
           <h3 className="product-title">{product.name}</h3>
-          
-          {/* Render harga dalam format Rupiah */}
-          <p className="product-price">
-            {formatRupiah(product.price)}
+          <p className="product-price text-lg text-muted-foreground mb-4">
+            {showStartFromIds.includes(product.id)
+              ? `Start From ${formatRupiah(product.price)}`
+              : formatRupiah(product.price)}
           </p>
-          
           <p className="product-description">{product.description}</p>
-          
           <Button 
             className="btn-add-to-cart"
             onClick={handleAddToCart}

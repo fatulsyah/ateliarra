@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useProducts } from '@/hooks/useProducts';
@@ -12,6 +11,8 @@ import { motion } from 'framer-motion';
 const formatRupiah = (amount) => {
   return 'Rp ' + amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ',-';
 };
+
+const showStartFromIds = [37, 39, 54, 55]; //condition ID to show "Start from" text
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -117,10 +118,67 @@ const ProductPage = () => {
         >
           <h1 className="heading-lg mb-2">{product.name}</h1>
           {/* <p className="text-2xl font-medium text-primary mb-4">Rp {product.price.toFixed(2)}</p> */}
-           <p className="product-price">
-            {formatRupiah(product.price)}
+           <p className="product-price text-lg text-muted-foreground mb-4">
+            {product.id === 37 ? (
+              <>
+                Start From {formatRupiah(product.price)}
+                <br />
+                <span className="block mt-2 font-semibold">Oval Basket Prices:</span>
+                <span className="block text-sm">• Small : Rp 70.000</span>
+                <span className="block text-sm">• Medium : Rp 85.000</span>
+                <span className="block text-sm">• Large : Rp 100.000</span>
+                <span className="block mt-2 font-semibold">Circle Basket Prices:</span>
+                <span className="block text-sm">• Small : Rp 80.000</span>
+                <span className="block text-sm">• Medium : Rp 95.000</span>
+                <span className="block text-sm">• Large : Rp 110.000</span>
+              </>
+            ) : product.id === 39 ? (
+              <>
+                Start From {formatRupiah(product.price)}
+                <br />
+                <span className="block mt-2 font-semibold">Size:</span>
+                <span className="block text-sm">• Small : Rp 40.000</span>
+                <span className="block text-sm">• Medium : Rp 45.000</span>
+                <span className="block text-sm">• Large : Rp 50.000</span>
+              </>
+            ) : product.id === 54 ? (
+              <>
+                Start From {formatRupiah(product.price)}
+                <br />
+                <span className="block mt-2 font-semibold">Size:</span>
+                <span className="block text-sm">• Small : Rp 30.000</span>
+                <span className="block text-sm">• Medium : Rp 40.000</span>
+                <span className="block text-sm">• Large : Rp 50.000</span>
+              </>
+            ) : product.id === 55 ? (
+              <>
+                Start From {formatRupiah(product.price)}
+                <br />
+                <span className="block mt-2 font-semibold">Sticker Available "Hello":</span>
+                <span className="block text-sm">• Small : Rp 10.000</span>
+                <span className="block text-sm">• Medium : Rp 10.000</span>
+                <span className="block text-sm">• Large : Rp 15.000</span>
+                <span className="block mt-2 font-semibold">Sticker Available "Welcome to the world little one / Happy Graduation / Happy Wedding / Happy Birthday":</span>
+                <span className="block text-sm">• Small : Rp 12.000</span>
+                <span className="block text-sm">• Medium : Rp 12.000</span>
+                <span className="block text-sm">• Large : Rp 15.000</span>
+                <span className="block mt-2 font-semibold">Customize Your Stickers:</span>
+                <span className="block text-sm">• Custom Size : Rp 20.000</span>
+              </>
+            ) : showStartFromIds.includes(product.id) ? (
+              <>
+                Start From {formatRupiah(product.price)}
+              </>
+            ) : (
+              formatRupiah(product.price)
+            )}
           </p>
-          
+          {/* Add this block below the price for IDs 37, 39, 54, 55 */}
+          {[37, 39, 54, 55].includes(product.id) && (
+            <p className="text-xs text-primary font-medium mb-2">
+              Psst... let us know your preferred size in the notes when you check out this product! :)
+            </p>
+          )}
           <p className="text-muted-foreground mb-6">{product.description}</p>
           
           <div className="mb-8">
