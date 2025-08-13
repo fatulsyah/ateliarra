@@ -6,6 +6,7 @@ import HomePage from '@/pages/HomePage';
 import ShopPage from '@/pages/ShopPage';
 import ProductPage from '@/pages/ProductPage';
 import AboutPage from '@/pages/AboutPage';
+import EventsPage from '@/pages/EventsPage';
 import ContactPage from '@/pages/ContactPage';
 import CartPage from '@/pages/CartPage';
 import NotFoundPage from '@/pages/NotFoundPage';
@@ -23,6 +24,7 @@ function App() {
             <Route path="/shop" element={<ShopPage />} />
             <Route path="/product/:id" element={<ProductPage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/events" element={<EventsPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/custom-gift" element={<CustomGiftBuilderPage />} />

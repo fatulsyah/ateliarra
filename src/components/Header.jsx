@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from '@/contexts/CartContext';
 import { scrollToTop } from '@/utils/scrollToTop';
 
-const logoUrl = "/images/muted_coral_logo_circle.png";
+const logoUrl = "/images/atr-new.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,6 +35,7 @@ const Header = () => {
     { name: 'Home', path: '/' },
     { name: 'Shop', path: '/shop' },
     { name: 'About', path: '/about' },
+    { name: 'Events', path: '/events' },
     { name: 'Contact', path: '/contact' },
   ];
   
@@ -45,7 +46,9 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="relative z-10">
-            <img src={logoUrl} alt="Ateliarra Logo" className="h-12 md:h-16 lg:h-16" />
+            <img src={logoUrl}
+            alt="Ateliarra Logo"
+              style={{ height: '70px' }}/>
           </Link>
 
           {/* Desktop Navigation */}

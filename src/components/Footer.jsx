@@ -4,18 +4,18 @@ import { Instagram, Mail, MapPin, Phone } from 'lucide-react';
 import { FaTiktok } from 'react-icons/fa';
 import { scrollToTop } from '@/utils/scrollToTop';
 
-const logoUrl = "/images/muted_coral_logo.png";
+const logoUrl = "/images/atr-new.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   return (
     <footer className="bg-secondary mt-16">
-      <div className="container-custom pt-16 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="container-custom pt-16 pb-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <div>
             <Link to="/" className="inline-block mb-4">
-              <img src={logoUrl} alt="Ateliarra Logo" className="h-16" />
+              <img src={logoUrl} alt="Ateliarra Logo" className="h-14" />
             </Link>
             <p className="text-muted-foreground mb-6">
                 Handcrafted with love — Ateliarra celebrates thoughtful gifting for every moment.
