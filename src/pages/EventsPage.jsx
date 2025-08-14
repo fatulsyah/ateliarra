@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const eventDetails = {
@@ -17,11 +17,29 @@ const eventDetails = {
     { name: <>Hampers for<br />#1st Winner</>, image: "/images/hampers1.jpeg" },
     { name: <>Hampers for<br />#2nd Winner</>, image: "/images/hampers2.jpeg" },
     { name: <>Hampers for<br />#3rd Winner</>, image: "/images/hampers3.jpeg" },
-    { name: <>Little Gift for<br />All Participants</>, image: "/images/little-gift.jpeg" },
+    { name: <> Gift for<br />Participants</>, image: "/images/little-gift.jpeg" },
   ],
 };
 
+const posterImages = [
+  "/images/event-poster.jpeg",
+  "/images/poster-lomba.jpeg",
+];
+
 const EventsPage = () => {
+  const [posterIdx, setPosterIdx] = useState(0);
+
+  // Slideshow otomatis setiap 5 detik
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setPosterIdx((prev) => (prev + 1) % posterImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextPoster = () => setPosterIdx((prev) => (prev + 1) % posterImages.length);
+  const prevPoster = () => setPosterIdx((prev) => (prev - 1 + posterImages.length) % posterImages.length);
+
   return (
     <>
       <div className="relative overflow-hidden">
@@ -77,7 +95,9 @@ const EventsPage = () => {
                 <li>🍪 Snack Eating Contest <span className="text-xs text-muted-foreground">(Ages 1 – 3 years)</span></li>
                 <li>🎯 Target Throw Contest <span className="text-xs text-muted-foreground">(Ages &gt; 3 years)</span></li>
                 <li>🐟 Fish Catching Contest <span className="text-xs text-muted-foreground">(Ages &gt; 3 years)</span></li>
-              </ul>
+                <li>🎈 Family Balloon Coordination Contest <span className="text-xs text-muted-foreground">(Family Category)</span></li>
+                <li>📸 Independence Day Family Photo Contest <span className="text-xs text-muted-foreground">(Family Category)</span></li>
+              </ul> 
               Win special prizes for the champions and <br />don’t miss out on exciting door prizes for lucky participants.
             </p>
             <div className="mb-4">
@@ -87,19 +107,53 @@ const EventsPage = () => {
               <p className="mb-2">{eventDetails.description}</p>
             </div>
           </div>
-          <div className="flex-shrink-0 w-full lg:w-96 flex items-center">
-            <img
-              src={eventDetails.poster}
-              alt="Event Poster"
-              className="rounded-lg w-full object-cover"
-              style={{ minHeight: 400, maxHeight: 800, objectFit: 'cover', paddingBottom: 30, paddingLeft: 30 }}
-            />
+          <div className="flex-shrink-0 w-full lg:w-96 flex flex-col items-center">
+            <div className="relative w-full flex items-center justify-center">
+              {/* Prev Button - kiri poster */}
+              <button
+                className="absolute left-[-32px] top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full px-2 py-1 shadow transition-all border border-gray-200"
+                onClick={prevPoster}
+                aria-label="Previous"
+                style={{ zIndex: 2 }}
+              >
+                <span className="text-2xl font-bold text-gray-500">&lsaquo;</span>
+              </button>
+              {/* Poster Image */}
+              <img
+                src={posterImages[posterIdx]}
+                alt="Event Poster"
+                className="rounded-lg w-full object-cover"
+                style={{ minHeight: 400, maxHeight: 800, objectFit: 'cover' }}
+              />
+              {/* Next Button - kanan poster */}
+              <button
+                className="absolute right-[-32px] top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full px-2 py-1 shadow transition-all border border-gray-200"
+                onClick={nextPoster}
+                aria-label="Next"
+                style={{ zIndex: 2 }}
+              >
+                <span className="text-2xl font-bold text-gray-500">&rsaquo;</span>
+              </button>
+            </div>
+            <div className="flex gap-2 mt-2">
+              {posterImages.map((_, idx) => (
+                <span
+                  key={idx}
+                  className={`w-2 h-2 rounded-full ${idx === posterIdx ? "bg-primary" : "bg-gray-300"}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
     </div>
     </section>
       <h2 className="section-title" style={{paddingTop: 50}}> Hampers for the Winners & Little Gifts</h2>
-      <p className="text-muted-foreground text-center mb-6" style={{paddingBottom: 70}}> Turning moments into memories, and winners into stars. <br /> We create each gift with the hope that it becomes a little bridge — connecting people through warmth, gratitude, and love. <br />With Ateliarra, joy, presence, and care are wrapped in something beautiful. Because every moment matters, and every heart deserves to feel remembered. <br />Ateliarra is more than just a gift — it’s love, crafted with heart. ❤️</p>
+      <p className="text-muted-foreground text-center mb-6" style={{paddingBottom: 70}}> Turning moments into memories, and winners into stars.
+      <br />We create each gift with the hope that it becomes a little bridge — connecting people through warmth, gratitude, and love.
+      <br />With Ateliarra, joy, presence, and care are wrapped in something beautiful. Because every moment matters, and every heart deserves to feel remembered.
+      <br />
+      <br />🌟 This exclusive hampers is specially prepared for the 1st, 2nd, and 3rd <br /><b>place winners of the Family Balloon Relay Competition.</b> 
+      <br />Ateliarra is more than just a gift — it’s love, crafted with heart. ❤️</p>
         <div className="container-custom grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {eventDetails.hampers.map((item, idx) => (
             <div key={idx} className="flex flex-col items-center rounded-lg shadow hover:shadow-lg transition-shadow">
